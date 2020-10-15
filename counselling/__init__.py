@@ -9,12 +9,12 @@ from flask_login import LoginManager
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '374bef570b27058b66be0365a31a94c3'
 
-local_server = True
+local_server = False
 if local_server:
     app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:12aer56uil90@localhost/counsell"
 else:
     app.config[
-        'SQLALCHEMY_DATABASE_URI'] = "postgres://laripkbrqstugo:bf76f095f1e2ce296f38b9843ab0da324fb65aedce72901e791757b90caaf58d@ec2-34-198-103-34.compute-1.amazonaws.com:5432/d9dpulcr6t5qba"
+        'SQLALCHEMY_DATABASE_URI'] = "postgres://ksjwoswolbgdtk:cce092f6b7fba675ae2f51f7cf2a27b2536f90f4099f724c3c713bde17758ee6@ec2-52-72-34-184.compute-1.amazonaws.com:5432/dff0ekedh9f848"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 
