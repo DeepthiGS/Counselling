@@ -1,0 +1,201 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="signup-form">
+			<form class="form" method="POST" action="" enctype="multipart/form-data">
+				{{ form.hidden_tag() }}
+				<fieldset class="form-group">
+					<h2>Register</h2>
+				<p>Please fill in this form to register yourself for the counselling !</p>
+				<hr>
+<div class="form-group">
+				<div class="form-group">
+
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text ">
+								<span class="fa fa-user"></span>
+							</span>
+						   </div>
+							{% if form.first_name.errors %}
+							{{ form.username(class="form-control is-invalid")}}
+							<div  class="invalid-feedback">
+								{% for error in form.first_name.errors %}
+								<span>
+                                  {{ error }}
+								</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.first_name(class="form-control ")}}
+						{% endif %}
+
+					</div>
+				</div>
+
+
+                    <div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text ">
+								<span class="fa fa-user"></span>
+							</span>
+						   </div>
+
+							{% if form.last_name.errors %}
+							{{ form.last_name(class="form-control is-invalid")}}
+							<div  class="invalid-feedback">
+								{% for error in form.last_name.errors %}
+								<span>
+                                  {{ error }}
+								</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.last_name(class="form-control ")}}
+						{% endif %}
+
+					</div>
+				</div>
+
+
+                    <div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text ">
+								<span class="fa fa-mobile"></span>
+							</span>
+						   </div>
+							{% if form.mob_number.errors %}
+							{{ form.mob_number(class="form-control is-invalid")}}
+							<div  class="invalid-feedback">
+								{% for error in form.mob_number.errors %}
+								<span>
+                                  {{ error }}
+								</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.mob_number(class="form-control ")}}
+						{% endif %}
+
+					</div>
+				</div>
+
+
+                    <div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-paper-plane"></i>
+							</span>
+						</div>
+						<!-- inorder to check the validity of the form -->
+						{% if form.email.errors %}
+							{{ form.email(class="form-control is-invalid")}}
+							<div  class="invalid-feedback">
+								{% for error in form.email.errors %}
+								<span>
+                                  {{ error }}
+								</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.email(class="form-control ")}}
+						{% endif %}
+					</div>
+				</div>
+
+
+                    <div class="form-group">
+                        {{  form.image_file.label(class="input-group-text")}}
+						{{ form.image_file(class="form-control-file ")}}
+							{% if form.image_file.errors %}
+							{% for error in form.image_file.errors %}
+							<span class="text-danger">{{ error }}</span><br>
+							{% endfor %}
+						{% endif %}
+				</div>
+
+                  <div class="form-group">
+                        {{  form.aadhar_file.label(class="input-group-text")}}
+						{{ form.aadhar_file(class="form-control-file ")}}
+							{% if form.aadhar_file.errors %}
+							{% for error in form.aadhar_file.errors %}
+							<span class="text-danger">{{ error }}</span><br>
+							{% endfor %}
+						{% endif %}
+				</div>
+
+
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-lock"></i>
+							</span>
+						</div>
+
+						{% if form.password.errors %}
+						{{ form.password(class="form-control is-invalid")}}
+						<div  class="invalid-feedback">
+							{% for error in form.password.errors %}
+							<span>
+							  {{ error }}
+							</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{{ form.password(class="form-control ")}}
+					{% endif %}
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-lock"></i>
+								<i class="fa fa-check"></i>
+							</span>
+						</div>
+							{% if form.confirm_password.errors %}
+							{{ form.confirm_password(class="form-control is-invalid")}}
+							<div  class="invalid-feedback">
+								{% for error in form.confirm_password.errors %}
+								<span>
+                                  {{ error }}
+								</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.confirm_password(class="form-control ")}}
+						{% endif %}
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+				</div>
+    </div>
+
+				</fieldset>
+
+				<div class="form-group">
+					{{ form.submit( class="btn btn-primary btn-lg")}}
+				</div>
+
+			</form>
+
+			<div class="text-center border-top pt-3 text-muted">
+
+					Already have an account? <a href="{{url_for('register')}}">Login here</a>
+
+			</div>
+
+		</div>
+
+{% endblock content %}
