@@ -25,7 +25,7 @@ from counselling.model import User
 #     }
 # ]
 
-@app.route("/home")
+@app.route("/")
 def home():
     query = request.args.get('query')
     if query:
