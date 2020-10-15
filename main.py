@@ -149,4 +149,4 @@ def delete_user(user_id):
     return redirect(url_for('home'))
 
 
-app.run(debug=True)
+app.run()
